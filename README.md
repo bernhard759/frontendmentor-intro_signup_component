@@ -39,8 +39,8 @@ Mobile layout
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution on Github](https://github.com/bernhard759/frontendmentor-intro_signup_component)
+- Live Site URL: [Live Site URL](https://bernhard759.github.io/frontendmentor-intro_signup_component/)
 
 ## My process
 
