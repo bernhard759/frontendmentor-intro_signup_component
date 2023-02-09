@@ -1,0 +1,177 @@
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --darkergreen: hsl(154, 59%, 36%);
+  --blue: hsl(248, 32%, 49%);
+  --darkblue: hsl(249, 10%, 26%);
+  --grayblue: hsl(246, 25%, 77%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: "Outfit", sans-serif;
+  font-family: "Poppins", sans-serif;
+
+  background-image: url("../images/bg-intro-desktop.png");
+  background-color: var(--red);
+
+  display: grid;
+  place-content: center;
+  place-items: center;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+main {
+  display: grid;
+  grid-template-columns:
+    1fr minmax(min-content, 500px) minmax(min-content, 500px)
+    1fr;
+  grid-template-rows: min-content auto;
+  grid-template-areas: ". content pricing-info ." ". content form .";
+  column-gap: 2em;
+  row-gap: 1.5em;
+}
+
+.content-description {
+  grid-area: content;
+  color: white;
+  place-self: center;
+}
+
+.content-description > p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pricing-info {
+  grid-area: pricing-info;
+  background-color: var(--blue);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  text-align: center;
+}
+
+.form {
+  grid-area: form;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+  padding: 1.5em;
+}
+
+.form form {
+  --input-height: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form form > div {
+  position: relative;
+}
+
+.form form div > input {
+  width: 100%;
+  padding: 0.25em 0.5em;
+  height: var(--input-height);
+  border-radius: 4px;
+  border: 1px solid var(--grayblue);
+  color: var(--darkblue);
+  font-weight: bold;
+  padding-inline-start: 1em;
+  padding-inline-end: 1em;
+  outline-color: var(--blue);
+}
+
+.form form > div.error::after {
+  content: " ";
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  background-image: url("../images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-size: 60%;
+  height: calc((var(--input-height) - 0.5em) - 4px);
+  width: 30px;
+}
+
+.errormsg {
+  display: none;
+  margin-top: 0.5em;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--red);
+  text-align: end;
+}
+
+.form form > div.error > div.errormsg {
+  display: block;
+}
+
+.form form > div.error input {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.form form button {
+  background-color: var(--green);
+  border: 0;
+  box-shadow: 0 4px var(--darkergreen);
+  border-radius: 6px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding-block: 1em;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.form form button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px var(--darkergreen);
+}
+
+.terms-and-services {
+  font-size: 10px;
+  color: var(--grayblue);
+  text-align: center;
+  margin-top: 2em;
+}
+
+.terms-and-services a {
+  text-decoration: none;
+  color: var(--red);
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url("../images/bg-intro-mobile.png");
+    }
+
+    main {
+        grid-template-columns: 1fr minmax(300px, 400px) 1fr;
+      grid-template-areas: ". content ." ". pricing-info ." ". form .";
+    }
+  }
